@@ -1,0 +1,17 @@
+{
+  "name": "@jthawme/usbstorage",
+  "version": "0.0.1",
+  "description": "Class to help with usb storage detection and transfer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "drivelist": "^8.0.6",
+    "usb": "^1.6.0"
+  },
+  "devDependencies": {}
+}
