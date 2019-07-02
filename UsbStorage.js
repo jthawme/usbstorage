@@ -205,7 +205,7 @@ class UsbStorage {
             case 'darwin':
                 return this.execPromise(`diskutil unmountDisk ${drive.device}`)
             case 'linux':
-                return this.execPromise(`umount ${drive.device}`)
+                return this.execPromise(`umount ${drive.mountpoints[0].path}`)
         }
     }
 }
