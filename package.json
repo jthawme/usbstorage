@@ -1,6 +1,6 @@
 {
   "name": "@jthawme/usbstorage",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Class to help with usb storage detection and transfer",
   "main": "UsbStorage.js",
   "scripts": {
