@@ -1,3 +1,4 @@
+const fs = require('fs');
 const { exec } = require('child_process');
 const usb = require('usb');
 const drivelist = require('drivelist');
@@ -17,7 +18,8 @@ class UsbStorage {
     constructor(opts = {}) {
         this.defaults = {
             max_tries: 10,
-            ejectAfterMove: true
+            ejectAfterMove: true,
+            deleteAfterMove: true,
         };
 
         this.options = Object.assign({}, this.defaults, opts);
@@ -182,6 +184,10 @@ class UsbStorage {
         this.execPromise(`cp ${file} ${escapePath(drive.mountpoints[0].path)}`)
             .then(() => {
                 this._fireEvent('uploaded');
+
+                if (this.options.deleteAfterMove) {
+                    fs.unlinkSync(file);
+                }
 
                 if (this.options.ejectAfterMove) {
                     return this._ejectDrive(drive);
