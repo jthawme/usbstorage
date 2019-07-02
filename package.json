@@ -1,10 +1,11 @@
 {
   "name": "@jthawme/usbstorage",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Class to help with usb storage detection and transfer",
   "main": "index.js",
   "scripts": {
-    "distribute": "npm version patch && npm publish --access public"
+    "distribute": "npm version patch && npm publish --access public",
+    "distribute:direct": "npm version patch && npm publish --access public"
   },
   "keywords": [],
   "author": "Jonny Thaw <hi@jthaw.me> (https://jthaw.me)",
