@@ -4,10 +4,10 @@
   "description": "Class to help with usb storage detection and transfer",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "distribute": "npm version patch && npm publish --access public"
   },
   "keywords": [],
-  "author": "",
+  "author": "Jonny Thaw <hi@jthaw.me> (https://jthaw.me)",
   "license": "ISC",
   "dependencies": {
     "drivelist": "^8.0.6",
