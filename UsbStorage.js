@@ -182,11 +182,25 @@ class UsbStorage {
         this.execPromise(`cp ${file} ${escapePath(drive.mountpoints[0].path)}`)
             .then(() => {
                 this._fireEvent('uploaded');
-                return this.execPromise(`diskutil unmountDisk ${drive.device}`)
+
+                if (this.options.ejectAfterMove) {
+                    return this._ejectDrive(drive);
+                } else {
+                    return Promise.resolve(true);
+                }
             })
             .then(() => {
                 this._fireEvent('ejected');
             });
+    }
+
+    _ejectDrive(drive) {
+        switch (process.platform) {
+            case 'darwin':
+                return this.execPromise(`diskutil unmountDisk ${drive.device}`)
+            case 'linux':
+                return this.execPromise(`umount ${drive.device}`)
+        }
     }
 }
 
